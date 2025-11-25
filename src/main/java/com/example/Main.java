@@ -53,7 +53,7 @@ public class Main {
 
             out.println(header);
             out.println("Content-Type: text/html");
-            out.println("Content-length: " + data.length());
+            out.println("Content-Length: " + data.length());
             if(!campiHeader.isEmpty()){
                 out.println(campiHeader);
             }
