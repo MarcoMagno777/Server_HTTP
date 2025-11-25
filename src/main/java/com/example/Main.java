@@ -16,26 +16,53 @@ public class Main {
         PrintWriter out = new PrintWriter(s.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 
-        String response = in.readLine();
-
-        System.out.println(response);
-
         do {
 
-            response = in.readLine();
+            String response = in.readLine();
+
             System.out.println(response);
+
+            String[] parti = response.split(" ", 3);
+
+            do {
+
+                response = in.readLine();
+                System.out.println(response);
             
-        } while (!response.isEmpty());
+            } while (!response.isEmpty());
 
-        System.out.println("Fine richiesta. Inizio risposta");
+            System.out.println("Fine richiesta. Inizio risposta");
 
-        String data = "<h2>Giulia lunghi</h2>";
+            String header = "";
+            String campiHeader = "";
+            String data = "";
 
-        out.println("HTTP/1.1 200 OK");
-        out.println("Content-Type: text/html");
-        out.println("Content-length: " + data.length());
-        out.println("");
-        out.println(data);
+            switch (parti[1]) {
+                case "/ciao.html":
+                    header = "HTTP/1.1 200 OK";
+                    data = "<h1>ciao</h1>";
+                    break;
+                case "/ciao":
+                    header = "HTTP/1.1 301 MOVED PERMANENTLY";
+                    campiHeader = "Location: /ciao.html";
+                    break;
+                default:
+                    header = "HTTP/1.1 404 NOT FOUND";
+                    break;
+            }
+
+            out.println(header);
+            out.println("Content-Type: text/html");
+            out.println("Content-length: " + data.length());
+            if(!campiHeader.isEmpty()){
+                out.println(campiHeader);
+            }
+            out.println("");
+            out.println(data);
+            
+        }while(s.isConnected());
+
+        
 
     }
 }
