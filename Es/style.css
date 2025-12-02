@@ -1,0 +1,49 @@
+/* Aggiungi uno stile per la tabella */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Stile per le celle della tabella */
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Cambia il colore di sfondo della prima riga (intestazioni) */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Stile per ogni riga alternata */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover per le righe */
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Aggiungi un po' di margine al body della pagina */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Aggiungi uno spazio all'intorno della tabella */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ridimensionamento del font */
+th, td {
+    font-size: 16px;
+}
