@@ -48,7 +48,8 @@ public class ThreadHttp extends Thread {
                     parti[1] += "index.html";
                 }
 
-                File file = new File(parti[1].split("/", 2)[1]);
+                File file = new File("Es" + parti[1]);
+                System.out.println(file.getAbsolutePath());
 
                 if (file.exists()) {
 
@@ -78,6 +79,8 @@ public class ThreadHttp extends Thread {
                 out.println(risposta);
                 out.println("");
             }
+
+            s.close();
 
 
         } catch (IOException e) {
